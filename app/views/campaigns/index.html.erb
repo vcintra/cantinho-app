@@ -1,0 +1,24 @@
+<section class="hero is-info">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Bem vindo ao portal de rifas do Cantinho dos Idosos
+      </h1>
+      <h2 class="subtitle">
+        Escolha uma das rifas abaixo e clique para participar e fazer sua doação
+      </h2>
+    </div>
+  </div>
+</section>
+<section id="dashboard" class="section has-text-white has-text-centered dashboard">
+  <div class="campaigns">
+    <% if @campaigns.count > 0 %>
+      <br/>
+      <section class="container">
+        <div class="columns features is-multiline">
+          <%= render @campaigns %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>

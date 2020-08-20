@@ -1,0 +1,30 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="http://cantinhodosidosos.ong.br/">
+      <img src="http://cantinhodosidosos.ong.br/images/109403857_598706804119017_6139149888687984767_n.jpg" width="112" height="28">
+    </a>
+  </div>
+ 
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <% if current_user && current_user.admin %>
+        <a class="navbar-item" href="/admin">
+          Administrativo
+        </a>
+      <% end %>
+    </div>
+ 
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <% if !current_user %>
+            <%= link_to('Admin', new_user_session_path, :class => "button is-info") %>                     
+          <% end %>
+          <% if current_user %>
+            <%= link_to('Logout', destroy_user_session_path, method: :delete, :class => "button is-light") %>        
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
