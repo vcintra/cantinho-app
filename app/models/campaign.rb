@@ -1,7 +1,7 @@
 class Campaign < ApplicationRecord
   #Para utilizar o Active Storage basta adicionar attached ao model
   has_many_attached :images
-  has_may :orders
+  has_many :orders
   validates_presence_of :title, :description
   before_update :is_blocked
   

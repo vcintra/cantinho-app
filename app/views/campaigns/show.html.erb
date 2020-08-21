@@ -63,15 +63,23 @@
 							// This function sets up the details of the transaction, including the amount and line item details.
 							return actions.order.create({
 								purchase_units: [{
-									amount: {
+									amount: {										
 										value: <%= @campaign.price %>
+									},
+									item: { 
+									name: '<%= @campaign.title %>',
+										quantity: 5,
+										amount: [{
+											currency_code: 'BRL',
+											value: <%= @campaign.price %>
+										}]
 									}
-								}]
+								}]								
 							});
 						},
 						onApprove: function(data, actions) {
 							return actions.order.capture().then(function(details) {
-								alert('Transaction completed by ' + details.payer.email_address);
+								alert('Obrigado por ajudar o Cantinho dos Idosos, em breve você receberá um e-mail da compra.');
 							});
 						}
 					}).render('#paypal-button-container');

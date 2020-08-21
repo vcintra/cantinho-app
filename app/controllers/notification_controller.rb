@@ -1,8 +1,7 @@
 class NotificationController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:create]
+  skip_before_action :verify_authenticity_token
+  skip_before_action :authenticate_user!
 
   def create
-    order = Order.find(params[:id])
-    puts params[:id]
   end
 end
