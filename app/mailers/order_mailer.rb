@@ -10,7 +10,7 @@ class OrderMailer < ApplicationMailer
   def confirmation(order) 
     @order = order
     @campaign = Campaign.find order.campaign_id
-    mail to: 'vcintra@gmail.com', subject: "Números da sorte - Cantinho dos Idosos"
+    mail to: @order.email, subject: "Números da sorte - Cantinho dos Idosos"
     # from = Email.new(email: 'sorteio@cantinhodosidosos.ong.br')
     # to = Email.new(email: 'vcintra@gmail.com')
     # subject = 'Números da Sorte - Cantinho dos Idosos'
