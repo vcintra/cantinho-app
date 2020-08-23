@@ -1,0 +1,22 @@
+<h1>Números da Sorte</h1>
+
+<p>
+  Olá <%= @order.name %>,
+</p>
+
+<p>
+  O Cantinho dos Idosos agradece a sua doação!  
+</p>
+<p>
+  Segue os números da sorte para o sorteio da <%= @campaign.title%>.
+  <br>
+  Números:
+  <%- @order.items.each do |item| %>
+    <%= item.number %>
+  <%- end %>
+</p>
+<br>
+<p>
+  Muito obrigado pela sua participação e boa sorte.
+</p>
+<h1>ONG Cantinho dos Idosos</h1>

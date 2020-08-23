@@ -58,7 +58,8 @@ ActiveRecord::Schema.define(version: 2020_08_21_000440) do
 
   create_table "orders", force: :cascade do |t|
     t.string "email"
-    t.integer "price"
+    t.string "name"
+    t.decimal "price", precision: 16, scale: 2
     t.string "order_id"
     t.bigint "campaign_id", null: false
     t.datetime "created_at", precision: 6, null: false

@@ -1,0 +1,14 @@
+Números da Sorte
+
+Olá <%= @order.name %>
+
+O Cantinho dos Idosos agradece a sua doação! 
+Segue os números da sorte para o sorteio da <%= @campaign.title %>, que será realizado em <%= @campaign.drawing%>.
+
+Números:
+<% numbers = @order.items.map { |item| item.number } %>
+<%= numbers %>
+
+Muito obrigado pela sua participação.
+
+Ong Cantinho dos Idosos
