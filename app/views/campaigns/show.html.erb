@@ -54,7 +54,7 @@
 			<br>
 			<div class="container has-text-centered">
 				<script
-						src="https://www.paypal.com/sdk/js?client-id=AXrERXCMIMaS2x92Pdfw65HfGmJS20xJg_a5UhyFCsu3fTUR75kxJ7zdouZ6m93cMfUCwvBs-uWN61x_&currency=BRL"> // Required. Replace SB_CLIENT_ID with your sandbox client ID.
+					src="https://www.paypal.com/sdk/js?client-id=AbE4LxtcvQrO6kbkJJtk9lvEcZkS4AZHDotldV0bziHJ2Z52Ru7f4aavuXlg8BtIPOLJttXm3I588C1z&currency=BRL"> // Required. Replace SB_CLIENT_ID with your sandbox client ID.
 				</script>	
 				<div id="paypal-button-container"></div>
 				<script>
@@ -73,7 +73,7 @@
 						},
 						onApprove: function(data, actions) {
 							return actions.order.capture().then(function(details) {			
-								alert('Obrigado por ajudar o Cantinho dos Idosos, em breve você receberá um e-mail da compra.'+ details.id);					
+								alert('Obrigado por ajudar o Cantinho dos Idosos, em breve você receberá um e-mail da compra.');					
 							});
 						}
 					}).render('#paypal-button-container');
