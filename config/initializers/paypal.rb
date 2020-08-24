@@ -9,11 +9,7 @@ module PayPalClient
       client_id = ENV['PAYPAL_CLIENT_ID'] || ''
       client_secret = ENV['PAYPAL_CLIENT_SECRET'] || ''
 
-      if Rails.env.production?
-        PayPal::LiveEnvironment.new(client_id, client_secret)
-      else
-        PayPal::SandboxEnvironment.new(client_id, client_secret)     
-      end 
+      PayPal::SandboxEnvironment.new(client_id, client_secret)     
     end
 
     # Returns PayPal HTTP client instance with environment that has access
