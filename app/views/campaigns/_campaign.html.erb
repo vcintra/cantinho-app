@@ -12,13 +12,13 @@
               <div class="level-item has-text-centered">
                 <div>
                   <p class="heading">Valor</p>
-                  <p class="title"><%= formatar_valor_BRL(campaign.price) %></p>
+                  <p class="subtitle"><%= formatar_valor_BRL(campaign.price) %></p>
                 </div>
               </div>
               <div class="level-item has-text-centered">
                 <div>
                   <p class="heading">Data do Sorteio</p>
-                  <p class="title"><%= localize(campaign.drawing, format: :default) %></p>
+                  <p class="subtitle"><%= localize(campaign.drawing, format: :default) %></p>
                 </div>
               </div>                            
             </nav>
