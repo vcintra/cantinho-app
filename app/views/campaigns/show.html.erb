@@ -57,8 +57,8 @@
 				<script>
 				paypal.Buttons({
 					style: {
-						shape: 'rect',
-						color: 'gold',
+						shape: 'pill',
+						color: 'blue',
 						layout: 'vertical',
 						label: 'paypal',
 						
@@ -66,10 +66,12 @@
 					createOrder: function(data, actions) {
 						return actions.order.create({
 							purchase_units: [{
-								amount: {
-									value: '1'
-								}
-							}]
+									description: '<%= @campaign.title %>',
+									custom_id: <%= @campaign.id %>,
+									amount: {										
+										value: parseInt($('input[name=quantity]').val()) * <%= @campaign.price %>
+									}
+								}]
 						});
 					},
 					onApprove: function(data, actions) {
