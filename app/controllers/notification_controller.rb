@@ -5,11 +5,10 @@ include PayPalCheckoutSdk::Orders
 class NotificationController < ApplicationController
   skip_before_action :verify_authenticity_token
   skip_before_action :authenticate_user!
-
-  def create   
-    id = params[:resource][:id]
-
-    request = OrdersGetRequest::new(id)
+  # before_action :get_id, only: :create
+  
+  def create         
+    request = OrdersGetRequest::new(get_id)
     
     begin
       response = PayPalClient::client.execute(request) 
@@ -40,5 +39,11 @@ class NotificationController < ApplicationController
       puts ioe.status_code
       puts ioe.headers["debug_id"]
     end
+  end
+
+  private
+
+  def get_id      
+    params[:resource][:links].select{|item| item[:href].include?('order')}.map{|item| item[:href]}.first.match('.*\/orders\/(.*)')[1]     
   end
 end
