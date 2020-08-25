@@ -23,14 +23,14 @@ class NotificationController < ApplicationController
       order.campaign_id = campaign.id
       order.save
 
-      numbers = order.price / campaign.price
+      # numbers = order.price / campaign.price
 
-      while numbers >= 1
-        item = Item.new
-        item.order_id = order.id
-        item.save
-        numbers = numbers - 1
-      end
+      # while numbers >= 1
+      #   item = Item.new
+      #   item.order_id = order.id
+      #   item.save
+      #   numbers = numbers - 1
+      # end
       
       OrderMailer.confirmation(order).deliver_later!
 
