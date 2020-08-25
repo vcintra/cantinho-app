@@ -17,20 +17,20 @@ class NotificationController < ApplicationController
 
       order = Order.new
       order.email = response.result.payer.email_address
-      order.name = [response.result.payer.name[0].given_name,response.result.payer[0].name.surname].join(' ')
+      order.name = [response.result.payer.name.given_name,response.result.payer.name.surname].join(' ')
       order.price = response.result.purchase_units[0].amount.value
       order.order_id = response.result.id
       order.campaign_id = campaign.id
       order.save
 
-      # numbers = order.price / campaign.price
+      numbers = order.price / campaign.price
 
-      # while numbers >= 1
-      #   item = Item.new
-      #   item.order_id = order.id
-      #   item.save
-      #   numbers = numbers - 1
-      # end
+      while numbers >= 1
+        item = Item.new
+        item.order_id = order.id
+        item.save
+        numbers = numbers - 1
+      end
       
       OrderMailer.confirmation(order).deliver_later!
 
