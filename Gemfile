@@ -29,8 +29,9 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 # My Gems
+gem 'azure-storage'
 gem 'devise'
-gem "figaro"
+gem 'figaro'
 gem 'paypal-checkout-sdk'
 gem 'rails_admin', '~> 2.0'
 gem 'rails-i18n', '~> 6.0.0'
